@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program;
 
-declare_id("");
+declare_id!("");
 
 
 #[program]

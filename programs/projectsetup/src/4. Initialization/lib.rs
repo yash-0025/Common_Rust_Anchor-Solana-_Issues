@@ -1,8 +1,8 @@
 use anchor_lang::prelude::*;
 use borsh:;{BorshSerialize, BorshDeserialize};
-use std::ops::DerefMut
+use std::ops::DerefMut;
 
-declare_id("");
+declare_id!("");
 
 // @audit-issue :: NO check to prevent multiple initialize. Missing check for preinitialized account. Attacker can pass fake user account where authority is the attacker keys and pass it inside the initialize and can now hold the authority of that accoutn
 

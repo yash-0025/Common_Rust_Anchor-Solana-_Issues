@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id("");
+declare_id!("");
 
 #[program]
 pub mod duplicate_mutable_accounts {
@@ -43,7 +43,7 @@ pub fn update(ctx:Context<Update>, a: u64, b: u64,) ->Result<()> {
     if ctx.accounts.user_a.key() == ctx.accounts.user_b.key() {
         return Err(ProgramError::InvalidArgument);
     }
-    
+
     let user_a = &mut ctx.accounts.user_a;
     let user_b = &mut ctx.accounts.user_b;
 

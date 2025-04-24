@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use borsh::{BorshDeserialize, BorshSerialize};
 
-declare_id("");
+declare_id!("");
 
 #[program]
 pub mod type_cosplay_insecure {

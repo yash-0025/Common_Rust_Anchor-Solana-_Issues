@@ -3,7 +3,7 @@ use anchor_lang::solana_program::program_error::ProgramError;
 use anchor_lang::solana_program::program_pack::Pack;
 use spl_token::state::Account as SplTokenAccount;
 
-declare_id("");
+declare_id!("");
 #[program]
 pub mod insecure_owner_check {
     use super::*;
