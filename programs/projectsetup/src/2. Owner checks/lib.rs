@@ -26,8 +26,9 @@ pub struct LogMessage<'info> {
 }
 
 // Two ways to solve this issue and apply the owner checks
-// 1. We can update the derive(accounts) and add a constraint
-// here it automaticall verifies that its a real token account
+
+//*// 1. We can update the derive(accounts) and add a constraint here it automaticaly verifies that its a real token account
+
 #[derive(Accounts)]
 pub struct LogMessage<'info> {
     #[account(constraint = authority.key == &token.owner)]
@@ -35,7 +36,8 @@ pub struct LogMessage<'info> {
     authority: Signer<'info>,
 }
 
-// 2. We can manually check in the function that is this a genuine spl token account and does this account belongs to this caller
+//*//  2. We can manually check in the function that is this a genuine spl token account and does this account belongs to this caller
+
 pub fn log_message(ctx: Context<LogMessage>) -> Result<()> {
     let token = SplTokenAccount::unpack(&ctx.accounts.token.data.borrow());
     if ctx.accounts.token.owner != &spl_token::ID {
